@@ -4,7 +4,7 @@ namespace blog\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-
+use blog\Models\User;
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -24,7 +24,13 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        
+        Gate::define('access-admin', function ($user){
+            return $user->role == User::ROLE_ADMIN;
+        });
 
-        //
+        Gate::define('access-usuario', function ($user){
+            return $user->role == User::ROLE_USER;
+        });
     }
 }

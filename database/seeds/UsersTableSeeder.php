@@ -11,14 +11,14 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(blog\User::class, 1)
+        factory(blog\Models\User::class, 1)
             ->states('admin')
             ->create([
                 'name'=>'admin',
                 'email'=>'admin@admin',
                 'password'=>bcrypt('admin')
             ]);
-            factory(blog\User::class, 1)
+            factory(blog\Models\User::class, 1)
             ->states('admin')
             ->create([
                 'name'=>'Walisson Rodrigo',
@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
                 'password'=>bcrypt('97498037')
             ]);
 
-        factory(blog\User::class, 1)
+        factory(blog\Models\User::class, 1)
             ->create([
                 'name'=>'Paulo César',
                 'email'=>'usuario@usuario',

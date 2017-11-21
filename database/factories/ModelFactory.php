@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(blog\User::class, function (Faker\Generator $faker) {
+$factory->define(blog\Models\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -24,7 +24,7 @@ $factory->define(blog\User::class, function (Faker\Generator $faker) {
 
 });
 
-$factory->define(blog\Posts::class,
+$factory->define(blog\Models\Posts::class,
     function(Faker\Generator $faker){
 
     return[
@@ -33,7 +33,7 @@ $factory->define(blog\Posts::class,
     ];
 });
 
-$factory->define(blog\Comentarios::class, function(Faker\Generator $faker){
+$factory->define(blog\Models\Comentarios::class, function(Faker\Generator $faker){
     return[
         'post_id'=>3,
         'nome'=>$faker->word,
@@ -42,21 +42,21 @@ $factory->define(blog\Comentarios::class, function(Faker\Generator $faker){
     ];
 });
 
-$factory->define(blog\Tags::class, function(Faker\Generator $faker){
+$factory->define(blog\Models\Tags::class, function(Faker\Generator $faker){
     return[
         'nome'=>$faker->word,
     ];
 });
 
-$factory->state(blog\User::class, 'admin', function (Faker\Generator $faker) { # criar esta factory
+$factory->state(blog\Models\User::class, 'admin', function (Faker\Generator $faker) { # criar esta factory
     return[
-        'role'=>blog\User::ROLE_ADMIN
+        'role'=>blog\Models\User::ROLE_ADMIN
     ];
 });
 
-$factory->state(blog\User::class, 'usuario', function (Faker\Generator $faker) { # criar esta factory
+$factory->state(blog\Models\User::class, 'usuario', function (Faker\Generator $faker) { # criar esta factory
     return[
-        'role'=>blog\User::ROLE_USER
+        'role'=>blog\Models\User::ROLE_USER
     ];
 });
 

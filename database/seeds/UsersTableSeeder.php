@@ -11,27 +11,24 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(blog\Models\User::class, 1)
-            ->states('admin')
+        blog\Models\User::states('admin')
             ->create([
                 'name'=>'admin',
                 'email'=>'admin@admin',
                 'password'=>bcrypt('admin')
             ]);
-            factory(blog\Models\User::class, 1)
-            ->states('admin')
+        blog\Models\User::states('admin')
             ->create([
                 'name'=>'Walisson Rodrigo',
                 'email'=>'walissonrodrigo@outlook.com',
                 'password'=>bcrypt('97498037')
             ]);
 
-        factory(blog\Models\User::class, 1)
-            ->create([
-                'name'=>'Paulo César',
-                'email'=>'usuario@usuario',
-                'password'=>bcrypt('123456')
-            ]);
+        blog\Models\User::create([
+            'name'=>'Paulo César',
+            'email'=>'usuario@usuario',
+            'password'=>bcrypt('123456')
+        ]);
 
     }
 }

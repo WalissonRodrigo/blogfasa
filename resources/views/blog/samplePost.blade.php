@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="{{ default->locale() }}">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Materialize themes</title>
+  <title>{{ config('app.name', 'Laravel') }}</title>
 
   <!-- CSS  -->
-  <link href="{{asset('blog/css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="{{asset('blog/css/index.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel="stylesheet" href="{{asset('blog/css/font-awesome-4.3.0/css/font-awesome.min.css')}}">
-  <link rel="shortcut icon" href="{{asset('blog/images/favicon (9).ico')}}" type="image/x-icon">
-  <link rel="icon" href="{{asset('blog/images/favicon (9).ico')}}" type="image/x-icon">
+  <link href="{{ url('blog/css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ url('blog/css/index.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="{{ url('blog/css/font-awesome-4.3.0/css/font-awesome.min.css') }}">
+  <link rel="shortcut icon" href="{{ url('blog/images/favicon (9).ico') }}" type="image/x-icon">
+  <link rel="icon" href="{{ url('blog/images/favicon (9).ico') }}" type="image/x-icon">
 </head>
 <body>
 <div id="navbar" class="navbar-fixed scrollspy">
   <nav class="grey darken-2">
     <div class="nav-wrapper container">
-    	<div class="container"> <a href="{{url('/')}}" class="brand-logo">Logo</a></div>
+    	<div class="container"> <a href="{{ url('/') }}" class="brand-logo">Logo</a></div>
      
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       <ul class="right hide-on-med-and-down">
 
-          <li><a href="{{url('/')}}">Home</a></li>
-          <li><a href="{{url('/about')}}">Quem Somos</a></li>
-          <li><a href="{{url('/posts')}}">Posts</a></li>
-          <li><a href="{{url('/contact')}}">Contato</a></li>
+          <li><a href="{{ url('/') }}">Home</a></li>
+          <li><a href="{{ url('/about') }}">Quem Somos</a></li>
+          <li><a href="{{ url('/posts') }}">Posts</a></li>
+          <li><a href="{{ url('/contact') }}">Contato</a></li>
 
 
       </ul>
         <ul class="right side-nav" id="mobile-demo">
-            <li><a href="{{url('/')}}">Home</a></li>
-            <li><a href="{{url('/about')}}">Quem Somos</a></li>
-            <li><a href="{{url('/posts')}}">Criar Post</a></li>
-            <li><a href="{{url('/contact')}}">Contato</a></li>
+            <li><a href="{{ url('/') }}">Home</a></li>
+            <li><a href="{{ url('/about') }}">Quem Somos</a></li>
+            <li><a href="{{ url('/posts') }}">Criar Post</a></li>
+            <li><a href="{{ url('/contact') }}">Contato</a></li>
         
       </ul>
     </div>
@@ -43,9 +43,9 @@
     <div class="section no-pad-bot">
       <div class="container valign">
         <br><br>
-        <h1 class="header center grey-text text-darken-2">{{$post->titulo}}</h1>
+        <h1 class="header center grey-text text-darken-2">{{ $post->titulo }}</h1>
         <div class="row center">
-           <p class="post-meta"><i style="color: #616161" class="fa fa-clock-o"></i> 7 days ago by <a href="#" style="color: #616161">Author name</a></p>
+           <p class="post-meta"><i style="color: #616161" class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($post->created_at)->diffHumans() }} <a href="#" style="color: #616161">{{ $post->user_name or 'John Doe' }}</a></p>
         </div>
         <div class="row center">
           <a href="#startPosts" class="btn-floating btn-large waves-effect waves-light grey darken-2 head-link"><i class="fa fa-angle-double-down"></i></a>
@@ -54,7 +54,7 @@
 
       </div>
     </div>
-    <div class="parallax"><img src="{{asset('blog/images/post.jpg')}}" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="{{  url('blog/images/post.jpg') }}" alt="Unsplashed background img 2"></div>
   </div>
 
 <div class="container" id="startPosts">
@@ -65,16 +65,16 @@
 	<div class="row">
 		<div class="col s12 m10 offset-m1 l9 offset-l1 card-panel indigo lighten-4 black-text">
             <h4><em>Conteúdo</em></h4>
-			<p>{{$post->conteudo}}</p>
+			<p>{{ $post->conteudo }}</p>
 		</div>
         @foreach($post->comentarios as $comentario)
             <div class="col s12 m10 offset-m1 l9 offset-l1 card-panel indigo lighten-5 black-text">
                 <h5><em>Comentário</em></h5>
-                    <p>{{$comentario->comentario}}</p>
+                    <p>{{ $comentario->comentario }}</p>
                     <small>
-                        Nome: {{$comentario->nome}}
+                        Nome: {{ $comentario->nome }}
                         <br>
-                        Email: {{$comentario->email}}
+                        Email: {{ $comentario->email }}
                     </small>
             </div>
         @endforeach
@@ -179,7 +179,7 @@
           </div><!--conatiner-->
     <div class="footer-copyright">
       <div class="container">
-       <p>Copyright © Your website name</p>
+       <p>Copyright © Blog Fasa</p>
        <br>
       </div>
     </div>
@@ -189,8 +189,8 @@
   <!--  Scripts-->
   
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="{{asset('blog/js/materialize.js')}}"></script>
-  <script src="{{asset('blog/js/init.js')}}"></script>
+  <script src="{{ url('blog/js/materialize.js') }}"></script>
+  <script src="{{ url('blog/js/init.js') }}"></script>
   <script>
   $(document).ready(function(){
     $('.materialboxed').materialbox();

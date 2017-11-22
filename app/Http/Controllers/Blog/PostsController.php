@@ -30,7 +30,7 @@ class PostsController extends Controller
     }
 
     public function form(){
-        return view('blog.postCreate');
+        return view('blog.posts.create-edit');
     }
 
     public function create(Request $request){

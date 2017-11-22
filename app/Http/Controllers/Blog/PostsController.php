@@ -21,7 +21,7 @@ class PostsController extends Controller
 
     public function posts(){
         $posts = $this->posts->paginate(10);
-        return view('blog.index', compact('posts'));
+        return view('blog.posts.index', compact('posts'));
     }
 
     public function detail($post_id){

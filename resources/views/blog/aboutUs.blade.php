@@ -6,11 +6,11 @@
   <title>Materilize themes</title>
 
   <!-- CSS  -->
-  <link href="{{asset('blog/css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="{{asset('blog/css/index.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel="stylesheet" href="{{asset('blog/css/font-awesome-4.3.0/css/font-awesome.min.css')}}">
-  <link rel="shortcut icon" href="{{asset('blog/images/favicon (9).ico')}}" type="image/x-icon">
-  <link rel="icon" href="{{asset('blog/images/favicon (9).ico')}}" type="image/x-icon">
+  <link href="{{url('blog/css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{url('blog/css/index.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="{{url('blog/css/font-awesome-4.3.0/css/font-awesome.min.css')}}">
+  <link rel="shortcut icon" href="{{url('blog/images/favicon (9).ico')}}" type="image/x-icon">
+  <link rel="icon" href="{{url('blog/images/favicon (9).ico')}}" type="image/x-icon">
 
 </head>
 <body>
@@ -54,7 +54,7 @@
 
       </div>
     </div>
-    <div class="parallax"><img src="{{asset('blog/images/about.jpg')}}" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="{{url('blog/images/about.jpg')}}" alt="Unsplashed background img 2"></div>
   </div>
 
 <div class="container" id="startPosts">
@@ -147,8 +147,8 @@
   <!--  Scripts-->
  
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="{{asset('blog/js/materialize.js')}}"></script>
-  <script src="{{asset('blog/js/init.js')}}"></script>
+  <script src="{{url('blog/js/materialize.js')}}"></script>
+  <script src="{{url('blog/js/init.js')}}"></script>
   <script>
   $(document).ready(function(){
     $('.materialboxed').materialbox();

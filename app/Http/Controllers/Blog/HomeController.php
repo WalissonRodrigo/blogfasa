@@ -1,7 +1,7 @@
 <?php
 
 namespace blog\Http\Controllers\Blog;
-
+use blog\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\Gate;
 

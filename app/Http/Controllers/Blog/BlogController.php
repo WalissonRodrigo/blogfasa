@@ -2,6 +2,7 @@
 
 namespace blog\Http\Controllers\Blog;
 
+use blog\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller

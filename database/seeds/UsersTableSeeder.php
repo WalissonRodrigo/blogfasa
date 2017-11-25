@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use blog\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,20 +12,19 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        blog\Models\User::create([
+        User::create([
+            'name'=>'Walisson Rodrigo',
+            'email'=>'walissonrodrigo@outlook.com',
+            'password'=>bcrypt('97498037'),
+        ]);
+        
+        User::create([
                 'name'=>'admin',
                 'email'=>'admin@admin',
                 'password'=>bcrypt('admin'),
-                'role'=>'admin'
-            ]);
-        blog\Models\User::create([
-                'name'=>'Walisson Rodrigo',
-                'email'=>'walissonrodrigo@outlook.com',
-                'password'=>bcrypt('97498037'),
-                'role'=>'admin'
             ]);
 
-        blog\Models\User::create([
+        User::create([
             'name'=>'Paulo César',
             'email'=>'usuario@usuario',
             'password'=>bcrypt('123456')

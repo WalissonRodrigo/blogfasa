@@ -4,13 +4,12 @@ namespace blog\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use blog\Models\Permission;
+use blog\Models\Role;
 
 class User extends Authenticatable
 {
     use Notifiable;
-
-    const ROLE_ADMIN = 'admin';
-    const ROLE_USER = 'usuario';
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role'
+        'name', 'email', 'password'
     ];
 
     /**
@@ -29,4 +28,55 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'permission_user', 'user_id', 'permission_id');
+    }
+
+    public function hasPermission(Permission $permission)
+    {
+        return $this->hasAnyRoles($permission->roles);
+    }
+    
+    public function hasAnyRoles($roles)
+    {
+        if(is_array($roles) || is_object($roles))
+        {
+            return !! $roles->intersect($this->roles)->count();
+            //return !!$this->roles->intersect($permission->roles)->count();
+        }
+        return $this->roles->contains('name', $roles);
+    }
+
+    public function hasRole($permission)
+    {
+        if (self::hasAnyRoles($permission))
+            return true;
+        else
+            return false;
+    }
+
+    public function isAdministrador()
+    {
+        if (self::hasAnyRoles('Administrador'))
+            return true;
+    }
+
+    public function isModerador()
+    {
+        if (self::hasAnyRoles('Moderador'))
+            return true;
+    }
+
+    public function isUsuario()
+    {
+        if (self::hasAnyRoles('Usuario'))
+            return true;
+    }
 }

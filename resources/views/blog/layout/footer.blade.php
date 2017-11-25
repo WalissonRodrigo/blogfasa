@@ -2,8 +2,8 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 l4 m10">
-                    <h5 class="white-text">Follow "BlogName"</h5>
-                    <p class="white-text">Get every new post delivered to your inbox.</p>
+                    <h5 class="white-text">Siga "Blog Fasa"</h5>
+                    <p class="white-text">Se inscreva para receber informações sobre novas postagens.</p>
                     <form>
 
                         <div class="input-field">
@@ -14,19 +14,19 @@
 
                     </form>
 
-                    <a class="waves-effect waves-light btn">Sign Up
+                    <a class="waves-effect waves-light btn">Registrar
                     <i class="fa fa-sign-in right"></i></a>
                 </div>
                 <!--col-->
 
 
                 <div id="categories" class="col l3 offset-l1 s12 m8">
-                    <h5 class="white-text">Categories</h5>
+                    <h5 class="white-text">Categorias</h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Category1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Category2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Category3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Category4</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Cursos</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Depoimentos</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Casos de Sucesso</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Avaliações Externas</a></li>
                     </ul>
                 </div>
                 <!--col-->
@@ -34,31 +34,20 @@
 
 
                 <div class="col l3 s12 m8">
-                    <h5 class="white-text">Archives</h5>
+                    <h5 class="white-text">Arquivos</h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">March 2015</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">April 2015</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">May 2015</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">June 2015</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{ url('/arquivos?date='.Carbon\Carbon::now()->subMonths(0)->format('d-m-Y') ) }}">Novembro 2017</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{ url('/arquivos?date='.Carbon\Carbon::now()->subMonths(1)->format('d-m-Y') ) }}">Outubro 2017</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{ url('/arquivos?date='.Carbon\Carbon::now()->subMonths(2)->format('d-m-Y') ) }}">Setembro 2017</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{ url('/arquivos?date='.Carbon\Carbon::now()->subMonths(3)->format('d-m-Y') ) }}">Agosto 2017</a></li>
                     </ul>
                 </div>
                 <!--col-->
 
             </div>
             <!--row-->
-
-            <div class="row">
-                <div class="col s12 l3 offset-l5">
-
-
-                    <a href="#"><i style="font-size: 38px;" class="fa fa-facebook-square"></i></a> &nbsp;&nbsp;&nbsp;
-                    <a href="#"><i style="font-size: 38px;" class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;&nbsp;
-                    <a href="#"><i style="font-size: 38px;" class="fa fa-google-plus-square"></i></a>
-                </div>
-
-            </div>
-            <!--row-->
         </div>
+        <br>
         <!--conatiner-->
         <div class="footer-copyright">
             <div class="container">

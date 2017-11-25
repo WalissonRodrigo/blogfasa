@@ -1,4 +1,6 @@
-@extends('blog.layout.html') @section('head')
+@extends('blog.layout.html') 
+
+@section('head')
 <!--Inicio do Bloco Head da pagina! 
 Aqui dentro pode-se carregar novos css ou js -->
 
@@ -86,21 +88,6 @@ Aqui dentro pode-se criar novos js ou passas o caminho do mesmo  -->
             scrollTop: $(goto).offset().top
         }, 800);
     });
-</script>
-<script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-60673008-2', 'auto');
-    ga('send', 'pageview');
 </script>
 
 <!-- Fim do Bloco de Scripts -->

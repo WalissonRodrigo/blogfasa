@@ -17,7 +17,7 @@ Onde serão criados novas paginas usando o mesmo layout -->
         <div class="section no-pad-bot">
             <div class="container valign">
                 <br><br>
-                <h1 class="header center grey-text text-darken-2">Web Blog</h1>
+                <h1 class="header center grey-text text-darken-2">Blog Fasa</h1>
                 <div class="row center">
                     <h5 class="header col s12 light grey-text text-darken-2">Blog Desenvolvimento Web Fasa 2017</h5>
                 </div>
@@ -45,7 +45,7 @@ Onde serão criados novas paginas usando o mesmo layout -->
                             {{ $post->titulo }}
                         </h4>
                     </a>
-                    <p class="post-meta"><i class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($post->created_at)->diffHumans() }} <a href="#">{{ $post->user->name or 'John Doe' }}</a></p>
+                    <p class="post-meta"><i class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($post->created_at)->diffHumans() }} <a href="#">{{ $post->user->name or 'Autor Desconhecido' }}</a></p>
                 </div>
                 <hr> 
                 @endforeach

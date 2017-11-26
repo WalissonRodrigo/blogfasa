@@ -1,4 +1,4 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     @include('admin.layout.head')
     <body class="fixed-sn light-blue-skin">

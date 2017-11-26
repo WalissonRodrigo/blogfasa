@@ -5,6 +5,10 @@ namespace blog\Providers;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use blog\Models\User;
+use blog\Models\Permission;
+use blog\Models\Role;
+
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'blog\Model' => 'blog\Policies\ModelPolicy',
+        
     ];
 
     /**
@@ -25,25 +29,24 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         
-        Gate::define('admin', function ($user){
-            if($user->isAdministrador())
-                return true;
-            else
-                return redirect()->abort(404);
-        });
-
-        Gate::define('moderador', function ($user){
-            if($user->isModerador())
-                return true;
-            else
-                return redirect()->abort(404);
-        });
-
-        Gate::define('usuario', function ($user){
-            if($user->isUsuario())
-                return true;
-            else
-                return redirect()->abort(404);
-        });
+        try{
+            $permissions = Permission::with('roles')->get();
+            
+            foreach($permissions as $permission)
+            {
+                Gate::define($permission->name, function(User $user) use($permission)
+                {
+                    return $user->hasPermission($permission);
+                });
+            }
+            Gate::before(function(User $user, $ability){
+                if($user->hasAnyRoles('Administrador'))
+                    return true;
+            });
+        }
+        catch(QueryException $e)
+        {
+            
+        }
     }
 }

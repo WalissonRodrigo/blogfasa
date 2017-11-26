@@ -6,12 +6,6 @@
 <!-- Fim da Area de Inclusão de CSS ou JS no cabeçalho do HTML -->
 @endsection
 
-@section('header')
-<!-- Cabeçalho da Dashboard -->
-
-<!-- Fim do Cabeçalho -->
-@endsection
-
 @section('content')
 <!-- Area de Conteúdo da Dashboard -->
 <h1>Dashboard de Exemplo à ser Modificada</h1>

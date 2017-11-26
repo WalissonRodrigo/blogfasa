@@ -502,8 +502,7 @@
                 <div class="col-md-7">
 
                     <!--Panel Header-->
-                    <div class="view py-3 gradient-card-header info-color-dark mb-4"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"
-                            src="./Material Design Bootstrap_files/saved_resource.html"></iframe>
+                    <div class="view py-3 gradient-card-header info-color-dark mb-4"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
 
                         <canvas id="lineChart" width="578" height="289" style="display: block; width: 578px; height: 289px;"></canvas>
 

@@ -1,6 +1,6 @@
 <!--Main Navigation-->
 <header>
-    @include('admin.blade.navbar')
-    @include('admin.blade.sidebar')
+    @include('admin.layout.navbar')
+    @include('admin.layout.sidebar')
 </header>
 <!--Main Navigation-->

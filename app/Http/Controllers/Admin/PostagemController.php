@@ -9,35 +9,36 @@ class PostagemController extends Controller
 {
     public function __construct()
     {
-        #
+        $this->middleware('auth');
     }
 
-    public function index(){
-        
+    public function index()
+    {
+        return "Postagems dos Papeis do Sistema";
     }
     
     public function cadastrar()
     {
-
+        return "Criar Postagems dos Papeis do Sistema";
     }
 
     public function editar($id)
     {
-
+        return "Editar Postagems dos Papeis do Sistema";
     }
 
     public function armazenar(Request $request) 
     {
-
+        return "Guadar Postagems dos Papeis do Sistema";        
     }
 
     public function atualizar(Request $request)
     {
-        # code...
+        return "Atualizar Postagems dos Papeis do Sistema";        
     }
     
     public function deletar(Request $request)
     {
-        # code...
+        return "Apagar Postagems dos Papeis do Sistema";        
     }
 }

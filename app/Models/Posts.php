@@ -12,9 +12,10 @@ class Posts extends Model
     protected $dates = ['deleted_at'];
     
     protected $fillable=[
-      'titulo',
-      'conteudo',
-      'user_id'
+        'titulo',
+        'conteudo',
+        'autor',
+        'user_id'
     ];
 
     public function comentarios(){

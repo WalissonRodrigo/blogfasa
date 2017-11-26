@@ -56,14 +56,14 @@
 <!-- Area de Conteúdo da Dashboard -->
 <div class="card">
     <div class="card-body">
-        <div class="table-wrapper-2">
+        <div class="table-wrapper-2 dataTable">
             <table id="postagems" class="table table-striped table-bordered table-responsive" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th><b>Titulo</b></th>
                         <th><b>Data Postagem</b></th>
                         <th><b>Data Modificação</b></th>
-                        <th><b>Ações</b></th>
+                        <th width="150px"><b>Ações</b></th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -117,5 +117,21 @@
         $('.mdb-select').material_select();
     });
 </script>
+
+@if(isset($errors) && count($errors)>0)
+<script>
+    $(document).ready(function(){
+        toastr.error("{{ $errors }}", "Alerta", { "positionClass": "toast-top-right", });
+    });
+</script>
+@endif
+@if(isset($success) && count($success)>0)
+<script>
+    $(document).ready(function(){
+        toastr.info("{{ $success }}", "Info",);
+    });
+</script>
+@endif
+
 <!-- Fim da Area dos JavaScripts no fim da Pagina -->
 @endsection

@@ -20,17 +20,5 @@ class PostsTableSeeder extends Seeder
         
         factory(Posts::class, 50)->create();
         
-        $tags = Tags::all();
-        $posts = Posts::all();
-
-        foreach($posts as &$post){
-            $coments = factory(Comentarios::class, 10);
-            foreach($coments as &$coment){
-                $coment['post_id']=$post->id;
-                $post->comentarios()->create($coment); 
-            }
-            $post->tags()->sync($tags);                                               
-        }
-
     }
 }

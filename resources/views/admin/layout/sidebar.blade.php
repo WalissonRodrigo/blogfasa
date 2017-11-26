@@ -5,7 +5,7 @@
         <li class="logo-sn waves-effect">
             <div class=" text-center">
                 <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="pl-0">
-                    <img src="./Material Design Bootstrap_files/mdb-transparent.png" class="">
+                    <img src="{{url("adm/img/mdb-transparent.png")}}" class="">
                 </a>
             </div>
         </li>

@@ -9,36 +9,36 @@ class ComentarioController extends Controller
 {
     public function __construct()
     {
-        #
+        $this->middleware('auth');
     }
 
     public function index()
     {
-
+        return "Comentários dos Papeis do Sistema";
     }
     
     public function cadastrar()
     {
-
+        return "Criar Comentários dos Papeis do Sistema";
     }
 
     public function editar($id)
     {
-
+        return "Editar Comentários dos Papeis do Sistema";
     }
 
     public function armazenar(Request $request) 
     {
-
+        return "Guadar Comentários dos Papeis do Sistema";        
     }
 
     public function atualizar(Request $request)
     {
-        # code...
+        return "Atualizar Comentários dos Papeis do Sistema";        
     }
     
     public function deletar(Request $request)
     {
-        # code...
+        return "Apagar Comentários dos Papeis do Sistema";        
     }
 }

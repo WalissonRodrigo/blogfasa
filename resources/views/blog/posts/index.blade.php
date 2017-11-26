@@ -40,12 +40,12 @@ Onde serão criados novas paginas usando o mesmo layout -->
             <div class="col s12 m10 offset-m1 l9 offset-l1">
                 @foreach($posts as $post)
                 <div class="post-preview">
-                    <a href="{{ route('/detail', ['id'=>$post->id]) }}">
+                    <a href="{{ action('Blog\BlogController@detalhes', ['id'=>$post->id]) }}">
                         <h4 class="post-title titleFont">
                             {{ $post->titulo }}
                         </h4>
                     </a>
-                    <p class="post-meta"><i class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($post->created_at)->diffHumans() }} <a href="#">{{ $post->user->name or 'Autor Desconhecido' }}</a></p>
+                    <p class="post-meta"><i class="fa fa-clock-o"></i> {{ Carbon\Carbon::parse($post->created_at)->diffForHumans() }} <a href="#">{{ $post->user->name or 'Autor Desconhecido' }}</a></p>
                 </div>
                 <hr> 
                 @endforeach

@@ -18,6 +18,11 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
+
+    public function postagems()
+    {
+        
+    }
     
     public function cadastrar()
     {

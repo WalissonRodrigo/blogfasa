@@ -2,6 +2,7 @@
 
 namespace blog\Http\Controllers\Admin;
 
+use Auth;
 use Illuminate\Http\Request;
 use blog\Http\Controllers\Controller;
 

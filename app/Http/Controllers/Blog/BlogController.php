@@ -57,9 +57,14 @@ class BlogController extends Controller
         return redirect()->route('/detail', $request->post_id);
     }
 
-    public function editarComentario(Request $request)
+    public function editarComentario($idPost, $idComentario, Request $request)
     {
-        $this->comment->create($request->all());
-        return redirect()->route('/detail', $request->post_id);
+        $form = $request->except('_token');
+        $comments = $this->comment->find($idComentario);
+        $update = $comments->update($form);
+        if($update)
+            return redirect()->action('Blog\BlogController@detalhes', $idPost)->with(['success'=>'Seu comentário foi Editado com Sucesso!']);
+        else
+            return redirect()->back()->with(['erros'=>'Não foi possivel editar seu comentário. Tente mais tarde!']);
     }
 }

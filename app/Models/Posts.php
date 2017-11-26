@@ -4,13 +4,17 @@ namespace blog\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use blog\Models\Comentarios;
-use blog\Tags;
+use blog\Models\Tags;
+use blog\Models\User;
 
 class Posts extends Model
 {
+    protected $dates = ['deleted_at'];
+    
     protected $fillable=[
       'titulo',
-      'conteudo'
+      'conteudo',
+      'user_id'
     ];
 
     public function comentarios(){
@@ -18,6 +22,10 @@ class Posts extends Model
     }
 
     public function tags(){
-        return $this->belongsToMany(Tags::class, 'posts_tags');
+        return $this->belongsToMany(Tags::class);
+    }
+
+    public function users(){
+        return $this->belongsTo(User::class);
     }
 }

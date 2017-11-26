@@ -35,7 +35,6 @@ $factory->define(blog\Models\Posts::class,
 
 $factory->define(blog\Models\Comentarios::class, function(Faker\Generator $faker){
     return[
-        'post_id'=>3,
         'nome'=>$faker->word,
         'email'=>$faker->email,
         'comentario'=>$faker->paragraph,
@@ -47,16 +46,3 @@ $factory->define(blog\Models\Tags::class, function(Faker\Generator $faker){
         'nome'=>$faker->word,
     ];
 });
-
-$factory->state(blog\Models\User::class, 'admin', function (Faker\Generator $faker) { # criar esta factory
-    return[
-        'role'=>blog\Models\User::ROLE_ADMIN
-    ];
-});
-
-$factory->state(blog\Models\User::class, 'usuario', function (Faker\Generator $faker) { # criar esta factory
-    return[
-        'role'=>blog\Models\User::ROLE_USER
-    ];
-});
-

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use blog\Models\Posts;
+use blog\Models\Comentarios;
+use blog\Models\Tags;
 
 class PostsTableSeeder extends Seeder
 {
@@ -11,8 +14,23 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(blog\Models\Posts::class, 20)->create();
+        //factory(blog\Models\Posts::class, 20)->create();
 
         factory(blog\Models\Tags::class, 20)->create();
+        
+        factory(Posts::class, 50)->create();
+        
+        $tags = Tags::all();
+        $posts = Posts::all();
+
+        foreach($posts as &$post){
+            $coments = factory(Comentarios::class, 10);
+            foreach($coments as &$coment){
+                $coment['post_id']=$post->id;
+                $post->comentarios()->create($coment); 
+            }
+            $post->tags()->sync($tags);                                               
+        }
+
     }
 }

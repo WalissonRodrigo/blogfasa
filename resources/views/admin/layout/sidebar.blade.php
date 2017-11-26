@@ -4,102 +4,67 @@
         <!-- Logo -->
         <li class="logo-sn waves-effect">
             <div class=" text-center">
-                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="pl-0">
-                    <img src="{{url("adm/img/mdb-transparent.png")}}" class="">
+                <a href="{{ url('/admin') }}" class="pl-0">
+                    <img src="{{url("adm/img/logo.png")}}" class="responsive-img">
                 </a>
             </div>
         </li>
+        <hr>
         <!--/. Logo -->
-        <!--Search Form-->
+        <!--Search Form--
         <li>
             <form class="search-form" role="search">
                 <div class="form-group waves-light waves-effect waves-light">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Pesquisar">
                 </div>
             </form>
         </li>
-        <!--/.Search Form-->
+        >!--/.Search Form-->
         <!-- Side navigation links -->
         <li>
             <ul class="collapsible collapsible-accordion">
                 <li>
+                    <a href="{{ url(action('Admin\AdminController@index')) }}" class="waves-effect">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard
+                    </a>
+                </li>
+            
+                <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-chevron-right"></i> Submit blog
+                        <i class="fa fa-chevron-right"></i> Postagems
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">Submit listing</a>
+                                <a href="{{ action('Admin\PostagemController@index') }}" class="waves-effect"><i class="fa fa-book" aria-hidden="true"></i>@if(Auth::user()->isUsuario()) Minhas Postagens @else Todas as Postagems @endif</a>
                             </li>
                             <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">Registration form</a>
+                                <a href="{{ action('Admin\PostagemController@cadastrar') }}" class="waves-effect"> <i class="fa fa-pencil"></i>Nova Postagem</a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li>
-                    <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-hand-pointer-o"></i> Instruction
-                        <i class="fa fa-angle-down rotate-icon"></i>
+                    <a class="waves-effect arrow-r disabled" href="#">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>Perfil
                     </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">For bloggers</a>
-                            </li>
-                            <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">For authors</a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-eye"></i> About
+                        <i class="fa fa-cog" aria-hidden="true"></i>Configurações
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">Introduction</a>
+                                <a href="{{ action('Admin\UsuarioController@index') }}" class="waves-effect"><i class="fa fa-users"></i>Usuários</a>
                             </li>
                             <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">Monthly meetings</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-envelope-o"></i> Contact me
-                        <i class="fa fa-angle-down rotate-icon"></i>
-                    </a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">FAQ</a>
+                                <a href="{{ action('Admin\PermissaoController@index') }}" class="waves-effect"><i class="fa fa-lock"></i>Permissões</a>
                             </li>
                             <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">Write a message</a>
-                            </li>
-                            <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">Write a message</a>
-                            </li>
-                            <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">Write a message</a>
-                            </li>
-                            <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-3/10/index.html#" class="waves-effect">Write a message</a>
+                                <a href="{{ action('Admin\FuncaoController@index') }}" class="waves-effect"><i class="fa fa-unlock"></i>Funções</a>
                             </li>
                         </ul>
                     </div>

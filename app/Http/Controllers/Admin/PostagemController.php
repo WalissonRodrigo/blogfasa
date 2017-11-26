@@ -28,14 +28,13 @@ class PostagemController extends Controller
         if(Auth::user()->isUsuario()) //Verifica se não é Administrador
             $posts = $this->posts->where('user_id', Auth::user()->id); //Busca os Posts do Usuário Logado apenas.
 
-        $success = "Foram encontradas ".$posts->count()." postagems!"; //Menssagem de Sucesso no Carregamento.
-        return view('admin.postagens.index', compact('posts', 'success'));
+        return view('admin.postagens.index', compact('posts'))->with(['errors'=>'Teste de Toast', 'success'=>'Toast de Exemplo']);
     }
     
     public function postagem($id)
     {
         $posts = $this->posts->find($id);
-        return view('admin.postagens.cadastrar-editar', compact('posts'));
+        return view('admin.postagens.postagem', compact('posts'))->with(['errors'=>'Falha ao Carregar a Postagem', 'success'=>'Postagem Carregada com Sucesso!']);
     }
 
     public function cadastrar()
@@ -64,11 +63,9 @@ class PostagemController extends Controller
         $post = $this->posts->find($id);
         $delete = $post->delete();
         if($delete){
-            $success = "A postagem foi apagada com sucesso."; //Menssagem de Sucesso no Carregamento.
-            return redirect()->back()->with(['success'=>$success]);     
+            return redirect()->back()->with(['success'=>'A postagem foi apagada com sucesso.']);     
         }else{
-            $erros = "Ocorreu um erro e não foi possivel apagar o registro."; //Menssagem de Sucesso no Carregamento.
-            return redirect()->back()->with(['erros'=>$erros]);     
+            return redirect()->back()->with(['errors'=>'Ocorreu um erro e não foi possivel apagar o registro.']);     
         }
     }
 }

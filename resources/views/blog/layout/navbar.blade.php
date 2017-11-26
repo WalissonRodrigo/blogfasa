@@ -25,7 +25,7 @@
                     <li><a href="{{ url('/postagens/criar') }}">Criar um Post</a></li>
                     <li><a href="{{ url('/contato') }}">Contato</a></li>
                     @if(Auth::check())
-                    <li><a href="{{ env('URL_ADMIN_LOGIN') }}">Administração</a></li>
+                    <li><a href="{{ env('URL_ADMIN_LOGIN') }}" >Administração</a></li>
                     <li><a href="{{ env('URL_ADMIN_LOGOUT') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>
                     <form class="hidden" id="logout-form" action="{{ env('URL_ADMIN_LOGOUT') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                     </li>
@@ -37,3 +37,4 @@
             </div>
         </nav>
     </div>
+    @include('admin.layout.utilities.login_modal')

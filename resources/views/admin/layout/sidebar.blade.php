@@ -31,7 +31,7 @@
             
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
-                        <i class="fa fa-chevron-right"></i> Postagems
+                        <i class="fa fa-chevron-right"></i> Postagens
                         <i class="fa fa-angle-down rotate-icon"></i>
                     </a>
                     <div class="collapsible-body">
@@ -50,6 +50,7 @@
                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>Perfil
                     </a>
                 </li>
+                @if(Auth::user()->isAdministrador())
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
                         <i class="fa fa-cog" aria-hidden="true"></i>Configurações
@@ -69,6 +70,7 @@
                         </ul>
                     </div>
                 </li>
+                @endif
             </ul>
         </li>
         <!--/. Side navigation links -->

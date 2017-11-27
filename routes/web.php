@@ -65,8 +65,8 @@ Route::group(['prefix'=>'/admin', 'as'=>'admin.'], function(){
         Route::post('postagens/cadastrar', 'Admin\PostagemController@armazenar')->middleware('can:Criar');        
         Route::get('postagens/{id}/editar', 'Admin\PostagemController@editar')->middleware('can:Editar');
         Route::put('postagens/{id}', 'Admin\PostagemController@atualizar')->middleware('can:Editar');
-        Route::delete('postagens/deletar', 'Admin\PostagemController@deletar')->middleware('role:Administrador');
-        /*
+        Route::delete('postagens/{id}', 'Admin\PostagemController@deletar')->middleware('role:Administrador');
+        
         Route::get('/comentarios', 'Admin\ComentarioController@index')->middleware('can:Visualizar');
         Route::get('comentarios/cadastrar', 'Admin\ComentarioController@cadastrar');
         Route::post('comentarios/cadastrar', 'Admin\ComentarioController@armazenar');        
@@ -96,7 +96,7 @@ Route::group(['prefix'=>'/admin', 'as'=>'admin.'], function(){
             Route::put('usuarios/editar', 'Admin\UsuarioController@atualizar');
             Route::delete('usuarios/deletar', 'Admin\UsuarioController@deletar');
         });
-        */
+        
     });
 });
 

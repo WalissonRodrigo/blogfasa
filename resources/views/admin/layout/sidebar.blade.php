@@ -27,7 +27,13 @@
             @if(Auth::check())
                 <li>
                     <a href="{{ url(action('Admin\AdminController@index')) }}" class="waves-effect">
-                        <i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard
+                        <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+                    </a>
+                </li>
+            @else
+                <li>
+                    <a href="{{ url('/login') }}" class="waves-effect">
+                        <i class="fa fa-users" aria-hidden="true"></i> Login
                     </a>
                 </li>
             @endif
@@ -39,9 +45,24 @@
                     </a>
                     <div class="collapsible-body">
                         <ul>
+                            
+                            @if(Auth::check() && Auth::user()->isUsuario())
                             <li>
-                                <a href="{{ Auht::check() ? action('Admin\PostagemController@index' : action('Blog\BlogController@index' ) }}" class="waves-effect"><i class="fa fa-book" aria-hidden="true"></i>{{ Auth::check() ? 'Minhas Postagens' : 'Todas as Postagems' }}</a>
+                                <a href="{{ action('Admin\PostagemController@index') }}" class="waves-effect"> <i class="fa fa-cog"></i>Gerenciar Postagem</a>
                             </li>
+                            <li>
+                                <a href="{{  action('Admin\AdminController@index')  }}" class="waves-effect"><i class="fa fa-book" aria-hidden="true"></i> Minhas Postagens</a>
+                            </li>
+                            @else
+                            <li>
+                                <a href="{{ action('Admin\PostagemController@index') }}" class="waves-effect"> <i class="fa fa-cog"></i>Gerenciar Postagem</a>
+                            </li>
+                            <li>
+                                <a href="{{  action('Blog\BlogController@index') }}" class="waves-effect"><i class="fa fa-book" aria-hidden="true"></i> Todas as Postagems</a>
+                            </li>
+                            @endif
+                            
+                            
                             <li>
                                 <a href="{{ action('Admin\PostagemController@cadastrar') }}" class="waves-effect"> <i class="fa fa-pencil"></i>Nova Postagem</a>
                             </li>

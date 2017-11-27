@@ -1,9 +1,7 @@
 <!--Main Navigation-->
 <header>
     @include('admin.layout.navbar')
-    @if(Auth::check())
-        @include('admin.layout.sidebar')
-    @endif
+    @include('admin.layout.sidebar')
     @yield('header')
 </header>
 <!--Main Navigation-->

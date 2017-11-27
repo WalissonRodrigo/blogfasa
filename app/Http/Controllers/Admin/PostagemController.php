@@ -74,7 +74,7 @@ class PostagemController extends Controller
             return redirect()->back()->with(['errors'=>'Erro ao Salvar sua Postagem! Tente novamente.']);
     }
     
-    public function deletar(Request $request, $id)
+    public function deletar($id)
     {
         $post = $this->posts->find($id);
         $delete = $post->delete();

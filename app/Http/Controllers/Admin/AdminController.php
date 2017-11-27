@@ -16,9 +16,15 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.index');
+        $posts = $this->posts->orderBy('updated_at', 'desc')->get();
+        
+        if(Auth::user()->isUsuario()) //Verifica se não é Administrador
+            $posts = $this->posts->where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->get(); //Busca os Posts do Usuário Logado apenas.
+                
+        return view('admin.index', compact('posts'));
     }
 
+    /*
     public function postagems()
     {
         
@@ -52,4 +58,5 @@ class AdminController extends Controller
             return "Cadastro de Posts como Moderador";
         }
     }
+    */
 }

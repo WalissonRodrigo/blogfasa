@@ -61,23 +61,23 @@ Route::group(['prefix'=>'/admin', 'as'=>'admin.'], function(){
         Route::get('/postagem/{id}', 'Admin\PostagemController@postagem')->middleware('can:Visualizar');
         Route::get('postagens/cadastrar', 'Admin\PostagemController@cadastrar')->middleware('can:Criar');
         Route::post('postagens/cadastrar', 'Admin\PostagemController@armazenar')->middleware('can:Criar');        
-        Route::get('postagens/editar/{id}', 'Admin\PostagemController@editar')->middleware('can:Editar');
-        Route::put('postagens/editar', 'Admin\PostagemController@atualizar')->middleware('can:Editar');
-        Route::delete('comentarios/deletar/{id}', 'Admin\PostagemController@deletar')->middleware('role:Administrador');
+        Route::get('postagens/{id}/editar', 'Admin\PostagemController@editar')->middleware('can:Editar');
+        Route::put('postagens/{id}', 'Admin\PostagemController@atualizar')->middleware('can:Editar');
+        Route::delete('postagens/deletar', 'Admin\PostagemController@deletar')->middleware('role:Administrador');
 
         Route::get('/comentarios', 'Admin\ComentarioController@index')->middleware('can:Visualizar');
         Route::get('comentarios/cadastrar', 'Admin\ComentarioController@cadastrar');
         Route::post('comentarios/cadastrar', 'Admin\ComentarioController@armazenar');        
-        Route::get('comentarios/editar/{id}', 'Admin\ComentarioController@editar');
-        Route::put('comentarios/editar', 'Admin\ComentarioController@atualizar');
+        Route::get('comentarios/{id}/editar/', 'Admin\ComentarioController@editar');
+        Route::put('comentarios/{id}', 'Admin\ComentarioController@atualizar');
         Route::delete('comentarios/deletar', 'Admin\ComentarioController@deletar');
 
         Route::group(['middleware'=>'role:Administrador'], function (){
             Route::get('/permissoes', 'Admin\PermissaoController@index');
             Route::get('permissoes/cadastrar', 'Admin\PermissaoController@cadastrar');
             Route::post('permissoes/cadastrar', 'Admin\PermissaoController@armazenar');        
-            Route::get('permissoes/editar/{id}', 'Admin\PermissaoController@editar');
-            Route::put('permissoes/editar', 'Admin\PermissaoController@atualizar');
+            Route::get('permissoes/editar', 'Admin\PermissaoController@editar');
+            Route::put('permissoes/editar/{id}', 'Admin\PermissaoController@atualizar');
             Route::delete('permissoes/deletar', 'Admin\PermissaoController@deletar');
 
             Route::get('/funcoes', 'Admin\FuncaoController@index');

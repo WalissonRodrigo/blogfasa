@@ -128,7 +128,7 @@
 @if(isset($success) && count($success)>0)
 <script>
     $(document).ready(function(){
-        toastr.info("{{ $success }}", "Info",);
+        toastr.info("{{ $success }}", "Aviso",);
     });
 </script>
 @endif

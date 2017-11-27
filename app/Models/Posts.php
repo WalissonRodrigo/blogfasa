@@ -15,7 +15,9 @@ class Posts extends Model
         'titulo',
         'conteudo',
         'autor',
-        'user_id'
+        'user_id',
+        'image_1',
+        'image_2'
     ];
 
     public function comentarios(){

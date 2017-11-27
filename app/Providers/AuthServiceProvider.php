@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use blog\Models\User;
 use blog\Models\Permission;
 use blog\Models\Role;
+use Illuminate\Database\QueryException;
 
 
 class AuthServiceProvider extends ServiceProvider

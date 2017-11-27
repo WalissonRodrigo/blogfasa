@@ -37,7 +37,7 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="{{ action('Admin\PostagemController@index') }}" class="waves-effect"><i class="fa fa-book" aria-hidden="true"></i>@if(Auth::user()->isUsuario()) Minhas Postagens @else Todas as Postagems @endif</a>
+                                <a href="{{ action('Admin\PostagemController@index') }}" class="waves-effect"><i class="fa fa-book" aria-hidden="true"></i>@if(Auth::check() && Auth::user()->isUsuario()) Minhas Postagens @else Todas as Postagems @endif</a>
                             </li>
                             <li>
                                 <a href="{{ action('Admin\PostagemController@cadastrar') }}" class="waves-effect"> <i class="fa fa-pencil"></i>Nova Postagem</a>
@@ -50,7 +50,7 @@
                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>Perfil
                     </a>
                 </li>
-                @if(Auth::user()->isAdministrador())
+                @if(Auth::check() && Auth::user()->isAdministrador())
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
                         <i class="fa fa-cog" aria-hidden="true"></i>Configurações

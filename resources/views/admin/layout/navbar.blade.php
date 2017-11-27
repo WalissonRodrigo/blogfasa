@@ -16,7 +16,7 @@
             <a class="nav-link dropdown-toggle waves-effect waves-light" href="{{ url('/admin') }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <i class="fa fa-user"></i>
-                <span class="clearfix d-none d-sm-inline-block">{{ Auth::user()->name }}</span>
+                <span class="clearfix d-none d-sm-inline-block">{{ Auth::check() ? Auth::user()->name : 'Deslogado ' }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item waves-effect waves-light disabled" href="#">Perfil</a>

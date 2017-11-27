@@ -23,18 +23,20 @@ class PostagemController extends Controller
 
     public function index()
     {
-        $posts = $this->posts->all();
+        $posts = $this->posts->orderBy('updated_at', 'desc')->get();
 
         if(Auth::user()->isUsuario()) //Verifica se não é Administrador
-            $posts = $this->posts->where('user_id', Auth::user()->id); //Busca os Posts do Usuário Logado apenas.
+            $posts = $this->posts->where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->get(); //Busca os Posts do Usuário Logado apenas.
 
-        return view('admin.postagens.index', compact('posts'))->with(['errors'=>'Teste de Toast', 'success'=>'Toast de Exemplo']);
+        return view('admin.postagens.index', compact('posts'));
     }
     
     public function postagem($id)
     {
         $posts = $this->posts->find($id);
-        return view('admin.postagens.postagem', compact('posts'))->with(['errors'=>'Falha ao Carregar a Postagem', 'success'=>'Postagem Carregada com Sucesso!']);
+        $comentarios = $this->comentarios->where('post_id', $id)->orderBy('created_at', 'desc')->get();
+
+        return view('admin.postagens.postagem', compact('posts', 'comentarios'));
     }
 
     public function cadastrar()
@@ -50,12 +52,26 @@ class PostagemController extends Controller
 
     public function armazenar(Request $request) 
     {
-        return "Guadar Postagems dos Papeis do Sistema";        
+        $dataForm = $request->except('_token');
+        $dataForm['user_id'] = Auth::check() ? Auth::user()->id : null;
+
+        $insert = $this->posts->create($dataForm);
+        if($insert)
+            return redirect(action('Admin\PostagemController@postagem', [$insert->id]))->with(['success'=>'Postagem criada com Sucesso']);
+        else
+            return redirect()->back()->with(['errors'=>'Erro ao Salvar sua Postagem! Tente novamente.']);
+       
     }
 
-    public function atualizar(Request $request)
+    public function atualizar(Request $request, $id)
     {
-        return "Atualizar Postagems dos Papeis do Sistema";        
+        $dataForm = $request->except('_token');
+        $post = $this->posts->find($id);
+        $update = $post->update($dataForm);
+        if($update)
+            return redirect(action('Admin\PostagemController@index'))->with(['success'=>'Postagem atualizada com Sucesso']);
+        else
+            return redirect()->back()->with(['errors'=>'Erro ao Salvar sua Postagem! Tente novamente.']);
     }
     
     public function deletar(Request $request, $id)

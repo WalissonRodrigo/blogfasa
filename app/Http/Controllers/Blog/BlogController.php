@@ -22,7 +22,7 @@ class BlogController extends Controller
 
     public function index()
     {
-        $posts = $this->posts->get()->orderBy('updated_at', 'desc')->paginate(15);
+        $posts = $this->posts->orderBy('updated_at', 'desc')->paginate(15)->get();
         return view('blog.posts.index', compact('posts'));
     }
 

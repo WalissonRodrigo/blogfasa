@@ -9,17 +9,17 @@ class RolesTableSeeder extends Seeder
     {
         Role::create([
             'name'=>'Administrador',
-            'Label'=>'Permissão Total no Sistema.'
+            'label'=>'Permissão Total no Sistema.'
         ]);
 
         Role::create([
             'name'=>'Moderador',
-            'Label'=>'Visualiza, Edita, Cria - Posts, Tags, Comentários. Apaga - Comentários.'
+            'label'=>'Visualiza, Edita, Cria - Posts, Tags, Comentários. Apaga - Comentários.'
         ]);
 
         Role::create([
             'name'=>'Usuario',
-            'Label'=>'Posta, Edita seu próprio Post, Visualiza Posts, Comenta e participa dos comentários.'
+            'label'=>'Posta, Edita seu próprio Post, Visualiza Posts, Comenta e participa dos comentários.'
         ]);
     }
 }

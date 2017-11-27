@@ -49,6 +49,7 @@
                         <div class="row pt-lg-5 pt-3">
                             <!--Grid column-->
                             <div class="col-md-12 col-xl-12">
+                                <form>
                                     <!--Grid Post Row-->
                                     <div class="row mt-3">
                                         <p class="dark-grey-text article">{{ $posts->conteudo }}</p>
@@ -81,8 +82,6 @@
                                     <!--Grid row-->
                                     <hr class="divider">
                                     <!--Comments-->
-                                @if(Auth::user()->isAdministrador())
-                                <form>
                                     <section>
                                         <!--Main wrapper-->
                                         <div class="comments-list text-center text-md-left">
@@ -169,7 +168,6 @@
                                     </section>
                                     <!--/Section: Leave a reply (Not Logged In User)-->
                                 </form>
-                                @endif
                             </div>
                             <!--/Grid column-->
                         </div>

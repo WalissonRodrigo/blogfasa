@@ -2,6 +2,7 @@
 
 namespace blog\Http\Controllers\Blog;
 
+use Auth;
 use blog\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use blog\Models\Posts;
@@ -16,19 +17,22 @@ class BlogController extends Controller
     public function __construct(Posts $posts, Comentarios $comment){
         $this->posts = $posts;
         $this->comment = $comment;
+        $this->middleware('guest');
     }
 
     public function index()
     {
-        $posts = $this->posts->paginate(10);
+        $posts = $this->posts->get()->orderBy('updated_at', 'desc')->paginate(15);
         return view('blog.posts.index', compact('posts'));
     }
 
-    public function detalhes($post_id)
+    public function postagem($post_id)
     {
-        $post = $this->posts->find($post_id);
-        return view('blog.samplePost', compact('post'));
+        $posts = $this->posts->find($post_id);
+        return view('blog.posts.postagem', compact('posts'));
     }
+
+    /*
 
     public function editar($id)
     {
@@ -67,4 +71,6 @@ class BlogController extends Controller
         else
             return redirect()->back()->with(['erros'=>'Não foi possivel editar seu comentário. Tente mais tarde!']);
     }
+
+    */
 }

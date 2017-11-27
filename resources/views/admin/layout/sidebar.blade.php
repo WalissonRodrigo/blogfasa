@@ -21,13 +21,16 @@
         </li>
         >!--/.Search Form-->
         <!-- Side navigation links -->
+
         <li>
             <ul class="collapsible collapsible-accordion">
+            @if(Auth::check())
                 <li>
                     <a href="{{ url(action('Admin\AdminController@index')) }}" class="waves-effect">
                         <i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard
                     </a>
                 </li>
+            @endif
             
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">
@@ -37,7 +40,7 @@
                     <div class="collapsible-body">
                         <ul>
                             <li>
-                                <a href="{{ action('Admin\PostagemController@index') }}" class="waves-effect"><i class="fa fa-book" aria-hidden="true"></i>@if(Auth::check() && Auth::user()->isUsuario()) Minhas Postagens @else Todas as Postagems @endif</a>
+                                <a href="{{ Auht::check() ? action('Admin\PostagemController@index' : action('Blog\BlogController@index' ) }}" class="waves-effect"><i class="fa fa-book" aria-hidden="true"></i>{{ Auth::check() ? 'Minhas Postagens' : 'Todas as Postagems' }}</a>
                             </li>
                             <li>
                                 <a href="{{ action('Admin\PostagemController@cadastrar') }}" class="waves-effect"> <i class="fa fa-pencil"></i>Nova Postagem</a>
@@ -45,11 +48,13 @@
                         </ul>
                     </div>
                 </li>
+                @if(Auth::check())
                 <li>
                     <a class="waves-effect arrow-r disabled" href="#">
                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>Perfil
                     </a>
                 </li>
+                @endif
                 @if(Auth::check() && Auth::user()->isAdministrador())
                 <li>
                     <a class="collapsible-header waves-effect arrow-r">

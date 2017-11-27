@@ -1,4 +1,4 @@
-@extends('blog.layout.html') 
+@extends('admin.layout.html') 
 
 @section('head')
 <!--Inicio do Bloco Head da pagina! 

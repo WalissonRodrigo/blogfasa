@@ -35,7 +35,8 @@ Route::get('/home', function (){
 
 Route::group(['prefix'=>'/', 'as'=>'blog.'], function(){
     Route::get('/', 'Blog\BlogController@index');
-    Route::get('/postagem/{id}', 'Blog\BlogController@detalhes');
+    Route::get('/postagem/{id}', 'Blog\BlogController@postagem');
+    /*
     Route::get('/postagems', 'Blog\BlogController@postagems');
     Route::get('/postar', 'Blog\BlogController@postar')->middleware('can:Criar');
     Route::post('/postar', 'Blog\BlogController@armazenar')->middleware('can:Criar');
@@ -43,6 +44,7 @@ Route::group(['prefix'=>'/', 'as'=>'blog.'], function(){
     Route::put('/editar', 'Blog\BlogController@atualizar')->middleware('can:Editar');
     Route::get('/posts/{id}/comentarios', 'Blog\BlogController@comentar')->middleware('can:Criar');
     Route::put('/posts/comentario/{id_comentario}/editar', 'Blog\BlogController@editarComentario')->middleware('can:Editar');
+    */
 });
 
 Route::group(['prefix'=>'/admin', 'as'=>'admin.'], function(){
@@ -64,7 +66,7 @@ Route::group(['prefix'=>'/admin', 'as'=>'admin.'], function(){
         Route::get('postagens/{id}/editar', 'Admin\PostagemController@editar')->middleware('can:Editar');
         Route::put('postagens/{id}', 'Admin\PostagemController@atualizar')->middleware('can:Editar');
         Route::delete('postagens/deletar', 'Admin\PostagemController@deletar')->middleware('role:Administrador');
-
+        /*
         Route::get('/comentarios', 'Admin\ComentarioController@index')->middleware('can:Visualizar');
         Route::get('comentarios/cadastrar', 'Admin\ComentarioController@cadastrar');
         Route::post('comentarios/cadastrar', 'Admin\ComentarioController@armazenar');        
@@ -94,6 +96,7 @@ Route::group(['prefix'=>'/admin', 'as'=>'admin.'], function(){
             Route::put('usuarios/editar', 'Admin\UsuarioController@atualizar');
             Route::delete('usuarios/deletar', 'Admin\UsuarioController@deletar');
         });
+        */
     });
 });
 

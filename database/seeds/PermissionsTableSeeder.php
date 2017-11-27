@@ -8,19 +8,19 @@ class PermissionsTableSeeder extends Seeder
     {
         Permission::create([
             'name'=>'Visualizar',
-            'Label'=>'Vê conteúdos.'
+            'label'=>'Vê conteúdos.'
         ]);
         Permission::create([
             'name'=>'Criar',
-            'Label'=>'Cria Conteúdos'
+            'label'=>'Cria Conteúdos'
         ]);
         Permission::create([
             'name'=>'Editar',
-            'Label'=>'Altera os Conteúdos Criados'
+            'label'=>'Altera os Conteúdos Criados'
         ]);
         Permission::create([
             'name'=>'Apagar',
-            'Label'=>'Apaga conteúdos existentes.'
+            'label'=>'Apaga conteúdos existentes.'
         ]);
     }
 }

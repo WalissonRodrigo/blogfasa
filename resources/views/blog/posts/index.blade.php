@@ -39,16 +39,10 @@
     </div>
     @endforeach
     <div class="row pb-5">
-        <nav class="my-4">
-            <ul class="pagination pagination-circle pg-blue mb-0">
-                <!--Primeiro-->
-                <li class="page-item"><a class="page-link">Primeiro</a></li>
-                    {!! $posts->render() !!}
-                <!--Ultimo-->
-                <li class="page-item"><a class="page-link">Ultimo</a></li>
-            </ul>
-        </nav>
-    </div>     
+        <!--Primeiro-->
+        {!! $posts->links() !!}
+        <!--Ultimo-->
+    </div> 
 @endif
 <!-- Fim do Bloco de Conteúdo -->
 @endsection

@@ -27,6 +27,14 @@
             
         </li>
     </ul>
+    @else
+        <ul class="nav navbar-nav nav-flex-icons ml-auto">
+            <li>
+                <a href="{{ url('/login') }}" class="waves-effect">
+                    <i class="fa fa-users" aria-hidden="true"></i> Login
+                </a>
+            </li>
+        </ul>
     @endif
 
 </nav>

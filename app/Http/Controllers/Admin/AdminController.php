@@ -5,21 +5,25 @@ namespace blog\Http\Controllers\Admin;
 use Auth;
 use Illuminate\Http\Request;
 use blog\Http\Controllers\Controller;
+use blog\Models\Posts;
+
+use blog\Models\User;
 
 class AdminController extends Controller
 {
-
-    public function __construct()
+    private $posts;
+    public function __construct(Posts $posts)
     {
         $this->middleware('auth');
+        $this->posts = $posts;
     }
 
     public function index()
     {
-        $posts = $this->posts->orderBy('updated_at', 'desc')->get();
+        $posts = $this->posts->orderBy('updated_at', 'desc')->paginate(15);
         
-        if(Auth::user()->isUsuario()) //Verifica se não é Administrador
-            $posts = $this->posts->where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->get(); //Busca os Posts do Usuário Logado apenas.
+        if(Auth::check() && Auth::user()->isUsuario()) //Verifica se não é Administrador
+            $posts = $this->posts->where('user_id', Auth::user()->id)->orderBy('updated_at', 'desc')->paginate(15); //Busca os Posts do Usuário Logado apenas.
                 
         return view('admin.index', compact('posts'));
     }

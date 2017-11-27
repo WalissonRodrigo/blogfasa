@@ -81,7 +81,7 @@
                                     <!--Grid row-->
                                     <hr class="divider">
                                     <!--Comments-->
-                                @if(Auth::user()->isAdministrador())
+                                @if(Auth::check() && Auth::user()->isAdministrador())
                                 <form>
                                     <section>
                                         <!--Main wrapper-->

@@ -26,3 +26,4 @@
 </script>
 <!-- Scripts customizados para a página -->
 @yield('scripts')
+@yield('scripts2')

@@ -64,6 +64,8 @@ Route::group(['prefix'=>'/admin', 'as'=>'admin.'], function(){
         Route::get('postagens/cadastrar', 'Admin\PostagemController@cadastrar')->middleware('can:Criar');
         Route::post('postagens/cadastrar', 'Admin\PostagemController@armazenar')->middleware('can:Criar');        
         Route::get('postagens/{id}/editar', 'Admin\PostagemController@editar')->middleware('can:Editar');
+        Route::get('postagens/editar/get/{id}', 'Admin\PostagemController@editarGet');        
+        Route::get('postagens/editar/{id}', 'Admin\PostagemController@atualizar');
         Route::put('postagens/{id}', 'Admin\PostagemController@atualizar')->middleware('can:Editar');
         Route::delete('postagens/{id}', 'Admin\PostagemController@deletar')->middleware('role:Administrador');
         

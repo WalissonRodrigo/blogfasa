@@ -50,6 +50,12 @@ class PostagemController extends Controller
         return view('admin.postagens.cadastrar-editar', compact('posts'));
     }
 
+    public function editarGet($id)
+    {
+        $posts = $this->posts->find($id);
+        return json_encode($posts);
+    }
+
     public function armazenar(Request $request) 
     {
         $dataForm = $request->except('_token');

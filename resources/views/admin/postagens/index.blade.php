@@ -82,7 +82,9 @@
                         <th>{{ $post->updated_at }}</th>
                         <td width="auto">
                             <a href="{{ action('Admin\PostagemController@postagem', $post->id) }}" class="blue-text btn-floating btn-sm cyan"><i class="fa fa-book"></i></a>
-                            <a href="{{ action('Admin\PostagemController@editar', $post->id) }}" class="teal-text btn-floating btn-sm light-green"><i class="fa fa-pencil"></i></a>
+                            @can('Editar')
+                                <a href="#" id="{{ $post->id }}" onClick="atualizarModal({{ $post->id }})" data-toggle="modal" class="teal-text btn-floating btn-sm light-green" data-target="#modalConfirmEdit"><i class="fa fa-pencil"></i></a>                              
+                            @endcan
                             @if(Auth::user()->isAdministrador())
                                 <a href="#" id="{{ $post->id }}" data-toggle="modal" class="red-text btn-floating btn-sm red" data-target="#modalConfirmDelete"><i class="fa fa-times"></i></a>                               
                                 {{ Form::open(['action'=>['Admin\PostagemController@deletar', $post->id],'class'=>'hidden','method'=>'delete', 'id'=>'modalConfirmDelete'.$post->id]) }}
@@ -97,6 +99,7 @@
     </div>
 </div>
 @include('admin.layout.utilities.modal_deletar', ['modal'=>'modalConfirmDelete', 'idForm'=>'modalConfirmDelete', 'message'=>'Você tem certeza que deseja Apagar este Registro!'])
+@include('admin.layout.utilities.modal_editar', ['urlEditar'=>'postagens/editar/', 'urlBuscar'=>'postagens/editar/get/', 'modal'=>'modalConfirmEdit', 'idForm'=>'modalEditar', 'message'=>'Editar Registro!'])
 <!-- Fim da Area de Conteúdo -->
 @endsection
 
@@ -132,6 +135,7 @@
     });
 </script>
 @endif
+
 
 <!-- Fim da Area dos JavaScripts no fim da Pagina -->
 @endsection

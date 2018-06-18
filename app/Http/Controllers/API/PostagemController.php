@@ -22,7 +22,7 @@ class PostagemController extends Controller
 
     public function index()
     {
-        $posts = $this->posts->orderBy('updated_at', 'desc')->paginate(5);
+        $posts = $this->posts->orderBy('updated_at', 'desc')->get();
         return response()->json($posts);
     }
 
@@ -32,6 +32,44 @@ class PostagemController extends Controller
         return response()->json($posts);
     }
 
+    public function cadastar(Request $request)
+    {
+        $post = $this->posts;
+        $insert = $post->create($request->all());
+        if($insert){
+            $message = ["message"=>"Registro Criado com sucesso!", "status"=>201];
+            return response()->json($message);
+        }else{
+            $message = ["message"=>"Ocorreu um erro ao criar o registro! Tente novamente ou acesso o site.", "status"=>500];
+            return response()->json($message);
+        }
+    }
+
+    public function atualizar(Request $request, $id)
+    {
+        $post = $this->posts->find($id);
+        $update = $post->update($request->all());
+        if($update){
+            $message = ["message"=>"Registro Atualizado com sucesso!", "status"=>202];
+            return response()->json($message);
+        }else{
+            $message = ["message"=>"Ocorreu um erro ao atualizar o registro! Tente novamente ou acesso o site.", "status"=>500];
+            return response()->json($message);
+        }
+    }
+
+    public function deletar($id)
+    {
+        $post = $this->posts->find($id);
+        $delete = $post->delete();
+        if($delete){
+            $message = ["message"=>"Registro Apagado com sucesso!", "status"=>202];
+            return response()->json($message);
+        }else{
+            $message = ["message"=>"Ocorreu um erro ao apagar o registro! Tente novamente ou acesso o site.", "status"=>500];
+            return response()->json($message);
+        }
+    }
     /*
 
     public function editar($id)
@@ -50,10 +88,6 @@ class PostagemController extends Controller
 
     }
 
-    public function atualizar()
-    {
-
-    }
     
     public function comentar(Request $request, $idPost)
     {

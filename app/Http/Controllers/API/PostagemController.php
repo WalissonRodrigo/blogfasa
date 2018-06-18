@@ -34,8 +34,9 @@ class PostagemController extends Controller
 
     public function cadastar(Request $request)
     {
+        $dataForm = $request->all();
         $post = $this->posts;
-        $insert = $post->create($request->all());
+        $insert = $post->create($dataForm);
         if($insert){
             $message = ["message"=>"Registro Criado com sucesso!", "status"=>201];
             return response()->json(['data'=>$message]);

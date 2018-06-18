@@ -22,7 +22,7 @@ class PostagemController extends Controller
 
     public function index()
     {
-        $posts = $this->posts->orderBy('updated_at', 'desc')->get();
+        $posts = $this->posts->orderBy('updated_at', 'desc')->paginate(15);
         return response()->json($posts);
     }
 

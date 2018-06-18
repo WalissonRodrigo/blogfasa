@@ -22,14 +22,14 @@ class PostagemController extends Controller
 
     public function index()
     {
-        $posts = $this->posts->orderBy('updated_at', 'desc')->paginate(15);
-        return response()->json($posts);
+        $posts = $this->posts->orderBy('updated_at', 'desc')->get();
+        return response()->json(['data'=>$posts]);
     }
 
     public function postagem($post_id)
     {
         $posts = $this->posts->find($post_id);
-        return response()->json($posts);
+        return response()->json(['data'=>$posts]);
     }
 
     public function cadastar(Request $request)
@@ -38,10 +38,10 @@ class PostagemController extends Controller
         $insert = $post->create($request->all());
         if($insert){
             $message = ["message"=>"Registro Criado com sucesso!", "status"=>201];
-            return response()->json($message);
+            return response()->json(['data'=>$message]);
         }else{
             $message = ["message"=>"Ocorreu um erro ao criar o registro! Tente novamente ou acesso o site.", "status"=>500];
-            return response()->json($message);
+            return response()->json(['data'=>$message]);
         }
     }
 
@@ -51,10 +51,10 @@ class PostagemController extends Controller
         $update = $post->update($request->all());
         if($update){
             $message = ["message"=>"Registro Atualizado com sucesso!", "status"=>202];
-            return response()->json($message);
+            return response()->json(['data'=>$message]);
         }else{
             $message = ["message"=>"Ocorreu um erro ao atualizar o registro! Tente novamente ou acesso o site.", "status"=>500];
-            return response()->json($message);
+            return response()->json(['data'=>$message]);
         }
     }
 
@@ -64,10 +64,10 @@ class PostagemController extends Controller
         $delete = $post->delete();
         if($delete){
             $message = ["message"=>"Registro Apagado com sucesso!", "status"=>202];
-            return response()->json($message);
+            return response()->json(['data'=>$message]);
         }else{
             $message = ["message"=>"Ocorreu um erro ao apagar o registro! Tente novamente ou acesso o site.", "status"=>500];
-            return response()->json($message);
+            return response()->json(['data'=>$message]);
         }
     }
     /*

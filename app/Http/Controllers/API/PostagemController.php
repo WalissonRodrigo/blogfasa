@@ -32,7 +32,7 @@ class PostagemController extends Controller
         return response()->json(['data'=>$posts]);
     }
 
-    public function cadastar(Request $request)
+    public function cadastrar(Request $request)
     {
         $dataForm = $request->all();
         $post = $this->posts;

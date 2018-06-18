@@ -20,4 +20,4 @@ Route::get('postagems', 'API\PostagemController@index');
 Route::get('postagems/{id}', 'API\PostagemController@postagem');
 Route::post('postagems/create', 'API\PostagemController@cadastrar');
 Route::put('postagems/{id}/update', 'API\PostagemController@atualizar');
-Route::delete('postagems/{id}', 'API\PostagemController@deletar');
+Route::post('postagems/{id}', 'API\PostagemController@deletar');
